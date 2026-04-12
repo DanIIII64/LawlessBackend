@@ -1,10 +1,9 @@
 {
     "//": "BR Item Shop Config",
     "daily1": {
-        "itemGrants": ["AthenaCharacter:CID_009_Athena_Commando_M"],
+        "itemGrants": ["Token:campaignaccess"],
         "displayAssetPath": "",
-        "NewDisplayAssetPath": "/OfferCatalog/NewDisplayAssets/S29/DAv2_CID_009_Athena_Commando_M.DAv2_CID_009_Athena_Commando_M",
-        "price": 800
+        "price": 0
     },
     "daily2": {
         "itemGrants": ["AthenaCharacter:CID_011_Athena_Commando_M"],

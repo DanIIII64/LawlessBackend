@@ -101,4 +101,12 @@ app.put('/profile/play_region', (req, res) => {
     console.log(`Put /profile/play_region called`);
 });
 
+app.get('/fortnite/api/receipts/v1/account/fornite/receipts', (req, res) => {
+    res.json({
+        "receipts": []
+    });
+    console.log(`Get /fortnite/api/receipts/v1/account/fornite/receipts called`);
+});
+
+
 module.exports = app;
