@@ -1,13 +1,12 @@
 const express = require('express');
 const app = express();
 
-app.post('/fortnite/api/game/v2/tryPlayOnPlatform/account/:accountId', (req, res) => {
+app.post('/fortnite/api/game/v2/tryPlayOnPlatform/account/fornite', (req, res) => {
     // Extracting the data from the request params, e.g: the route is '/fortnite/:accountId/:username'
-    const { accountId,} = req.params;
 
     res.setHeader("Content-Type", "text/plain");
     res.status(200).send("true");
-    console.log(`Post /fortnite/api/game/v2/tryPlayOnPlatform/account/:accountId called`);
+    console.log(`Post /fortnite/api/game/v2/tryPlayOnPlatform/account/fornite called`);
 });
 
 app.get('/account/api/public/account/:accountId/externalAuths', (req, res) => {
