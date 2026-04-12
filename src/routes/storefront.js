@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const functions = require("./functions.js");
-const keychain = require("./../responses/keychain.json");
+const keychain = require("../responses/keychain.json");
 
 app.get("/fortnite/api/storefront/v2/catalog", async (req, res) => {
     if (req.headers["user-agent"].includes("2870186")) {
