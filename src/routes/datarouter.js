@@ -2,12 +2,10 @@ const express = require('express');
 const app = express();
 const sdk = require("../responses/sdkv1.json");
 
-app.post('/datarouter/api/v1/public/data', (req, res) => {
-    res.status(200).send({
-    status: "OK",
-    code: 200
-});
-console.log(`Post /datarouter/api/v1/public/data called`);
+app.post("/datarouter/api/v1/public/data", async (req, res) => {
+    res.status(204);
+    res.end();
+    console.log(`Post /datarouter/api/v1/public/data called`);
 });
 
 app.post('/datarouter/api/v1/public/data/clients', (req, res) => {
