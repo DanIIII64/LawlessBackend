@@ -22,6 +22,7 @@ app.use(require("./src/routes/launcher.js")); // Must provide the path to your r
 app.use(require("./src/routes/unknown.js")); // Must provide the path to your route file
 app.use(require("./src/routes/matchmaking.js")); // Must provide the path to your route file
 app.use(require("./src/routes/storefront.js")); // Must provide the path to your route file
+app.use(require("./src/routes/functions.js").app); // Must provide the path to your route file
 
 
 app.use((err, req, res, next) => {

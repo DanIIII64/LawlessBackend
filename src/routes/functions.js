@@ -1,5 +1,6 @@
 const XMLBuilder = require("xmlbuilder");
 const uuid = require("uuid");
+const app = require("./datarouter");
 
 async function sleep(ms) {
     await new Promise((resolve, reject) => {
@@ -160,3 +161,9 @@ function getItemShop() {
 
     return catalog;
 }
+
+module.exports = {
+    app: app,
+    getItemShop: getItemShop,
+    GetVersionInfo: GetVersionInfo
+};
