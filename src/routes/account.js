@@ -93,4 +93,12 @@ app.get('/fortnite/api/game/v2/privacy/account/:accountId', (req, res) => {
     console.log(`Get /fortnite/api/game/v2/privacy/account/:accountId called`);
 });
 
+app.put('/profile/play_region', (req, res) => {
+    res.json({
+        "namespace": "Fortnite",
+        "play_region": "EUROPE"
+    });
+    console.log(`Put /profile/play_region called`);
+});
+
 module.exports = app;
