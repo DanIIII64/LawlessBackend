@@ -103,22 +103,15 @@ app.post('/epic/oauth/v2/revoke', (req, res) => {
 });
 
 app.get("/epic/id/v2/sdk/accounts", async (req, res) => {
+    const user = { accountId: "fornite", username: "fornite", banned: false };
     res.json([{
-            token_type: "bearer",
-            access_token: "eg1~fortnite",
-            refresh_token: "eg1~fortnite",
-            id_token: "eg1~fortnite",
-            expires_in: 28800,
-            expires_at: "9999-12-31T23:59:59.999Z",
-            refresh_expires_in: 28800,
-            refresh_expires_at: "9999-12-31T23:59:59.999Z",
-            account_id: "fornite",
-            client_id: "fornite",
-            application_id: "fornite",
-            selected_account_id: "fornite",
-            merged_accounts: []
+        accountId: user.accountId,
+        displayName: user.username,
+        preferredLanguage: "en",
+        linkedAccounts: [],
+        cabinedMode: false,
+        empty: false
     }]);
-    console.log(`Get /epic/id/v2/sdk/accounts called`);
 })
 
 app.delete('/account/api/oauth/sessions/kill', (req, res) => {
