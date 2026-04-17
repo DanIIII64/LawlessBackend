@@ -131,4 +131,15 @@ app.delete('/account/api/oauth/sessions/kill/:token', (req, res) => {
     console.log(`Delete /account/api/oauth/sessions/kill/:token called`);
 });
 
+app.all("/fortnite/api/game/v2/profileToken/verify/:accountId", (req, res) => {
+    console.log(`ALL /fortnite/api/game/v2/profileToken/verify/${req.params.accountId} called`);
+    
+    if (req.method != "POST") {
+        const err = error.method(req);
+        return res.header(err.header).status(405).send(err.error);
+    }
+
+    res.status(204).send();
+});
+
 module.exports = app;

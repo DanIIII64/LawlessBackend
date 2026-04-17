@@ -24,10 +24,9 @@ app.post("/telemetry/data/datarouter/api/v1/public/data", (req, res) => {
 console.log(`Post /telemetry/data/datarouter/api/v1/public/data called`);
 });
 
-app.get('/sdk/v1/*path', (req, res) => {
-    console.log(req.params.path)
+app.get('/sdk/v1/*', (req, res) => {
     res.json(sdk);
-    console.log(`Get /sdk/v1/*path called with path: ${req.params.path}`);
+    console.log(`Get /sdk/v1/* called with path: ${req.params[0]}`);
 })
 
 module.exports = app;
