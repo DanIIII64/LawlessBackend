@@ -1,0 +1,78 @@
+const express = require("express");
+const app = express();
+const discovery = require("../responses/Discovery/discovery_frontend.json");
+
+app.post("*/api/v2/discovery/surface/*", async (req, res) => {
+    res.json(discovery.v2);
+});
+
+app.post("*/discovery/surface/*", async (req, res) => {
+    res.json(discovery.v1);
+});
+
+app.get("/fortnite/api/discovery/accessToken/:branch", async (req, res) => {
+    res.json({
+        "branchName": req.params.branch,
+        "appId": "Fortnite",
+        "token": "fornite"
+    });
+});
+
+app.post("/links/api/fn/mnemonic", async (req, res) => {
+    var MnemonicArray = [];
+
+    for (var i in discovery.v2.Panels[1].Pages[0].results) {
+        MnemonicArray.push(discovery.v2.Panels[1].Pages[0].results[i].linkData)
+    }
+
+    res.json(MnemonicArray);
+})
+
+app.get("/links/api/fn/mnemonic/:playlist/related", async (req, res) => {
+    var response = {
+        "parentLinks": [],
+        "links": {}
+    };
+
+    if (req.params.playlist) {
+        for (var i in discovery.v2.Panels[1].Pages[0].results) {
+            var linkData = discovery.v2.Panels[1].Pages[0].results[i].linkData;
+            if (linkData.mnemonic == req.params.playlist) {
+                response.links[req.params.playlist] = linkData;
+            }
+        }        
+    }    
+
+    res.json(response);
+})
+
+app.get("/links/api/fn/mnemonic/*", async (req, res) => {
+    for (var i in discovery.v2.Panels[1].Pages[0].results) {
+        if (discovery.v2.Panels[1].Pages[0].results[i].linkData.mnemonic == req.url.split("/").slice(-1)[0]) {
+            res.json(discovery.v2.Panels[1].Pages[0].results[i].linkData);
+        }
+    }
+})
+
+app.post("/api/v1/links/lock-status/:accountId/check", async (req, res) => {
+    var response = {
+        "results": [],
+        "hasMore": false
+    };
+
+    if (req.body.linkCodes) {
+        for (var linkCode in req.body.linkCodes) {
+            response.results.push({
+                "playerId": req.params.accountId,
+                "linkCode": req.body.linkCodes[linkCode],
+                "lockStatus": "UNLOCKED",
+                "lockStatusReason": "NONE",
+                "isVisible": true
+            })
+        }        
+    }    
+
+    res.json(response);
+})
+
+module.exports = app;

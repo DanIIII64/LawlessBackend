@@ -25,7 +25,7 @@ app.use(require("./src/routes/storefront.js")); // Must provide the path to your
 app.use(require("./src/routes/functions.js").app); // Must provide the path to your route file
 app.use(require("./src/routes/party.js")); // Must provide the path to your route file
 app.use(require("./src/routes/friends.js")); // Must provide the path to your route file
-
+app.use(require("./src/routes/discovery.js")); // Must provide the path to your route file
 
 app.use((err, req, res, next) => {
     console.error(`Error occurred: ${err.message}`);

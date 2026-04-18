@@ -108,5 +108,14 @@ app.get('/fortnite/api/receipts/v1/account/fornite/receipts', (req, res) => {
     console.log(`Get /fortnite/api/receipts/v1/account/fornite/receipts called`);
 });
 
+app.get("/fortnite/api/game/v2/br-inventory/account/*", async (req, res) => {
+    console.log(`GET /fortnite/api/game/v2/br-inventory/account/${req.params.accountId} called`);
+    res.json({
+        "stash": {
+            "globalcash": 0
+        }
+    })
+})
+
 
 module.exports = app;

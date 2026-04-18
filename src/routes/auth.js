@@ -22,26 +22,25 @@ app.post('/account/api/oauth/token', (req, res) => {
 console.log(`Post /account/api/oauth/token called`);
 });
 
-app.post('/account/api/oauth/verify', (req, res) => {
-    res.status(200).send({
-    access_token: "eg1~fortnite",
-    expires_in: 28800,
-    expires_at: "9999-12-02T01:12:01.100Z",
-    token_type: "bearer",
-    refresh_token: "eg1~fortnite",
-    refresh_expires: 86400,
-    refresh_expires_at: "9999-12-02T01:12:01.100Z",
-    account_id: "fornite",
-    client_id: "fornite",
-    internal_client: true,
-    client_service: "fortnite",
-    displayName: "fornite",
-    app: "fortnite",
-    in_app_id: "fornite",
-    device_id: "fornite"
-});
-console.log(`Post /account/api/oauth/verify called`);
-});
+app.get("/account/api/oauth/verify", async (req, res) => {
+    res.json({
+        "token": "fornite",
+        "session_id": "3c3662bcb661d6de679c636744c66b62",
+        "token_type": "bearer",
+        "client_id": "fornite",
+        "internal_client": true,
+        "client_service": "fortnite",
+        "account_id": "fornite",
+        "expires_in": 28800,
+        "expires_at": "9999-12-02T01:12:01.100Z",
+        "auth_method": "exchange_code",
+        "display_name": "fornite",
+        "app": "fortnite",
+        "in_app_id": "fornite",
+        "device_id": "fornite"
+    })
+    console.log(`Get /account/api/oauth/verify with token ${req.query.token} called`);
+})
 
 app.post("/auth/v1/oauth/token", async (req, res) => {
     res.json({
