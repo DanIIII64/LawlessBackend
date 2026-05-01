@@ -14,6 +14,7 @@ console.log(`Post /fortnite/api/game/v2/profile/${accountId}/client/${operation}
 });
 
 app.use((req, res, next) => {
+    console.log(`Use /fortnite/api/game/v2/profile/* called`);
     if (!req.query.profileId && req.originalUrl.toLowerCase().startsWith("/fortnite/api/game/v2/profile/")) {
         return res.status(404).json({
             error: "Profile not defined."
