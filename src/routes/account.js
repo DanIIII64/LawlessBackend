@@ -112,7 +112,7 @@ app.get("/fortnite/api/game/v2/br-inventory/account/*", async (req, res) => {
     console.log(`GET /fortnite/api/game/v2/br-inventory/account/${req.params.accountId} called`);
     res.json({
         "stash": {
-            "globalcash": 0
+            "globalcash": 5000
         }
     })
 })
